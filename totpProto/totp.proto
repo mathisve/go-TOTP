@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package gotopt;
+
+option go_package = "./";
+
+message GetSecretRequest {
+
+}
+
+message GetSecretResponse {
+    bytes secretId = 1;
+    bytes secret = 2;
+}
+
+message ChallengeRequest {
+    bytes secretId = 1;
+    bytes topt = 2;
+}
+
+message ChallengeResponse {
+    bool ok = 1;
+}
+
+service Server {
+    rpc GetSecret (GetSecretRequest) returns (GetSecretResponse);
+    rpc Challenge (ChallengeRequest) returns (ChallengeResponse);
+}
+
+
+
