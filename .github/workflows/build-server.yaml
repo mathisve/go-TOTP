@@ -14,4 +14,4 @@ jobs:
 
       - name: Run build
         run: |
-          go build server/server.go
+          go build -o server-executable server/server.go
